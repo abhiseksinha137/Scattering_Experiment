@@ -1,0 +1,12 @@
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\bin\Debug\Scattering_Experiment.exe.config
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\obj\Debug\Scattering_Experiment.exe
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\obj\Debug\Scattering_Experiment.pdb
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\bin\Debug\Scattering_Experiment.exe
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\bin\Debug\Scattering_Experiment.pdb
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\bin\Debug\customControl.dll
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\bin\Debug\SpinnakerNETd_v140.dll
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\bin\Debug\customControl.pdb
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\obj\Debug\Scattering_Experiment_Second_Part.csprojResolveAssemblyReference.cache
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\obj\Debug\Scattering_Experiment.acquireFrm.resources
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\obj\Debug\Scattering_Experiment.Properties.Resources.resources
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Second_Part\obj\Debug\Scattering_Experiment_Second_Part.csproj.GenerateResource.Cache
