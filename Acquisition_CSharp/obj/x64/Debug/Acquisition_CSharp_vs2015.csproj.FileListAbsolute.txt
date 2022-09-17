@@ -1,0 +1,9 @@
+C:\Program Files\FLIR Systems\Spinnaker\bin64\vs2015\Acquisition_CSharpd_v140.exe
+C:\Program Files\FLIR Systems\Spinnaker\bin64\vs2015\Acquisition_CSharpd_v140.pdb
+C:\Program Files\FLIR Systems\Spinnaker\src\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharp_vs2015.csprojResolveAssemblyReference.cache
+C:\Program Files\FLIR Systems\Spinnaker\src\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharpd_v140.exe
+C:\Program Files\FLIR Systems\Spinnaker\src\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharpd_v140.pdb
+E:\VB.NEt\Scattering_Experiment\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharpd_v140.pdb
+E:\VB.NEt\bin64\vs2015\Acquisition_CSharpd_v140.pdb
+E:\VB.NEt\bin64\vs2015\Acquisition_CSharpd_v140.exe
+E:\VB.NEt\Scattering_Experiment\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharpd_v140.exe
