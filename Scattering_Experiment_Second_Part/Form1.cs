@@ -12,6 +12,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using System.IO;
 
 namespace Scattering_Experiment
 {
@@ -63,9 +64,10 @@ namespace Scattering_Experiment
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            folderBrowserDialog1.ShowDialog();
-            basePath = folderBrowserDialog1.SelectedPath.ToString();
-            basePath=basePath.Replace("\\", "/");
+            //folderBrowserDialog1.ShowDialog();
+            //basePath = folderBrowserDialog1.SelectedPath.ToString();
+            basePath = getFolderName();
+            basePath = basePath.Replace("\\", "/");
             txtBxsavePath.Text = basePath;
         }
 
@@ -297,9 +299,102 @@ namespace Scattering_Experiment
 
 
 
-        // Image Contol
+        // Plotting
+
+        List<Read> rrList = new List<Read>();
+
+        void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
 
 
+        public void PlotChart(string filePath)
+        {
+            Read rr;
+            ComboBox xBox = new ComboBox();
+            ComboBox yBox = new ComboBox();
+
+            rrList.Clear();
+            rr = new Read(filePath);
+            rrList.Add(rr);
+
+            if (rrList.Count > 0)
+            {
+                string[] header = rrList[0].header; //header of first file
+                xBox.DataSource = header;
+                yBox.DataSource = header.Clone(); //without Clone the 2 comboboxes link together!
+            }
+            if (yBox.Items.Count > 1) yBox.SelectedIndex = 1; //select second item
+
+            Plot.Draw(rrList, xBox, yBox, chart1);
+        }
+        private void btnPlot_Click(object sender, EventArgs e)
+        {
+            //OpenFileDialog ff = new OpenFileDialog();
+            //Read rr;
+
+            //ff.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //"C:\\";
+            //ff.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
+            //ff.Multiselect = true;
+            //ff.FilterIndex = 1;
+            //ff.RestoreDirectory = true;
+            //ComboBox xBox = new ComboBox();
+            //ComboBox yBox = new ComboBox();
+            //if (ff.ShowDialog() == DialogResult.OK)
+            //{
+            //    try
+            //    {
+            //        rrList.Clear();
+            //        foreach (String file in ff.FileNames) //if ((myStream = ff.OpenFile()) != null)
+            //        {
+            //            rr = new Read(file);
+            //            rrList.Add(rr);
+            //        }
+
+            //        //Populate the ComboBoxes
+            //        if (rrList.Count > 0)
+            //        {
+            //            string[] header = rrList[0].header; //header of first file
+            //            xBox.DataSource = header;
+            //            yBox.DataSource = header.Clone(); //without Clone the 2 comboboxes link together!
+            //        }
+            //        if (yBox.Items.Count > 1) yBox.SelectedIndex = 1; //select second item
+            //    }
+            //    catch (Exception err)
+            //    {
+            //        //Inform the user if we can't read the file
+            //        MessageBox.Show(err.Message);
+            //    }
+            //}
+            //Plot.Draw(rrList, xBox, yBox, chart1);
+            PlotChart("E:/VB.NEt/Scattering_Experiment/Scattering_Experiment_Second_Part/Images/-4500.csv");
+        }
+
+
+        public string getFolderName()
+        {
+            OpenFileDialog folderBrowser = new OpenFileDialog();
+            string folderPath = txtBxsavePath.Text;
+            // Set validate names and check file exists to false otherwise windows will
+            // not let you select "Folder Selection."
+            folderBrowser.ValidateNames = false;
+            folderBrowser.CheckFileExists = false;
+            folderBrowser.CheckPathExists = true;
+            // Always default to Folder Selection.
+            folderBrowser.FileName = "Folder Selection.";
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                    folderPath = Path.GetDirectoryName(folderBrowser.FileName);
+                    // ...
+            }
+            return folderPath;
+        }
     }
 
 }
