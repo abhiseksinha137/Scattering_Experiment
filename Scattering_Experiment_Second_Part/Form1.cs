@@ -77,16 +77,29 @@ namespace Scattering_Experiment
 
 
         // ****************************************** Capture *****************************
-        public void captureImage(string imageName)
+        public void captureImage(String camName, string imageName)
         {
+            if (camName.Equals("CAM1")){
+                spinView cam = new spinView("22175210");
+                string imagePath = imageName;
+                int result = cam.RunSingleCamera(imagePath);
+                picBx1.Image = cam.currentImage;
+                picBx1.Refresh();
+                resizePicBox(picBx1);
+            }
+            if (camName.Equals("CAM2"))
+            {
+                spinView cam = new spinView("17197493");
+                string imagePath = imageName;
+                int result = cam.RunSingleCamera(imagePath);
+                picBx2.Image = cam.currentImage;
+                picBx2.Refresh();
+                resizePicBox(picBx2);
+            }
+
             //spinView cam = new spinView("22175210");
-            spinView cam = new spinView("17197493");
-            MessageBox.Show(cam.camSerialNum);
-            string imagePath = imageName;
-            int result = cam.RunSingleCamera(imagePath);
-            picBx1.Image = cam.currentImage;
-            picBx1.Refresh();
-            resizePicBox(picBx1);
+            //spinView cam = new spinView("17197493");
+            
             
         }
         
@@ -100,38 +113,35 @@ namespace Scattering_Experiment
             int xf = int.Parse(txtBxTo.Text);
             int dx = int.Parse(txtBxStep.Text);
 
-            int x = x0;
-            while(x>= xf)
+            dx = Math.Abs(dx);
+            int N = Math.Abs(xf - x0) / dx;
+
+            if ((xf - x0) > 0)
+                dx = -dx;
+
+            int n = 0;
+            while(n<=N)
             {
                 Application.DoEvents();
-                //moveStage(x.ToString());
+                int x = x0 - n * dx;
+
+                // Move Stage
+                moveTo(x);
                 sleep(1000);
-                //while (Math.Abs(int.Parse(txtBxCurrent.Text) - x) > 200)
-                //{
-                //    lblStatus.Text = "Looping";
-                //    Application.DoEvents();
-                //    continue;
-                //}
-                while (ismoving && (Math.Abs(int.Parse(txtBxCurrent.Text) - x) > 100))
-                {
-                    Application.DoEvents();
-                    continue;
-                }
-                sleep(5000);
-                Application.DoEvents();
 
                 string pos = txtBxCurrent.Text;
                 string savepath = txtBxsavePath.Text+"/";
 
+
                 string spectrumName = savepath + x.ToString() + ".csv";
-                saveTheSpectrum(spectrumName);
+                //saveTheSpectrum(spectrumName);
 
 
                 string imageName = savepath + x.ToString() + ".bmp";
-                captureImage(imageName);
+                //captureImage(imageName);
 
 
-                x = x + dx;
+                n = n + 1;
             }
 
         }
@@ -141,6 +151,7 @@ namespace Scattering_Experiment
             commStage.baudrate = 9600;
             txtBxCurrent.Text = Properties.Settings.Default.pos;
             picBx1.ContextMenuStrip = cntxMnPic1;
+            picBx2.ContextMenuStrip = cntxMnPic2;
         }
 
        
@@ -148,6 +159,10 @@ namespace Scattering_Experiment
         private void btnGo_Click(object sender, EventArgs e)
         {
             int target = int.Parse(txtBxTarget.Text);
+            moveTo(target);
+        }
+        private void moveTo(int target)
+        {
             int current = int.Parse(txtBxCurrent.Text);
             int steps = target - current;
             moveStage(steps);
@@ -227,7 +242,7 @@ namespace Scattering_Experiment
 
         private void captureToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            captureImage("E:/VB.NEt/Scattering_Experiment/Scattering_Experiment_Second_Part/Images/img1.bmp");
+            captureImage("CAM1", "E:/VB.NEt/Scattering_Experiment/Scattering_Experiment_Second_Part/Images/img_CAM1.bmp");
         }
 
         void captureImg1()
@@ -247,6 +262,10 @@ namespace Scattering_Experiment
 
         public void resizePicBox(PictureBox p)
         {
+            Bitmap imgOriginal = (Bitmap)p.Image;
+            Bitmap bitmap = new Bitmap(imgOriginal, p.Size);
+            p.Image = bitmap;
+            p.Refresh();
             //Image imgOriginal = p.Image;
             //Image dummy = imgOriginal;
             //int ho = imgOriginal.Height;
@@ -264,6 +283,18 @@ namespace Scattering_Experiment
             //p.Refresh();
             //MessageBox.Show(r.ToString());
         }
+
+        private void picBx2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void captureToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            captureImage("CAM2", "E:/VB.NEt/Scattering_Experiment/Scattering_Experiment_Second_Part/Images/img_CAM2.bmp");
+        }
+
+
 
 
         // Image Contol

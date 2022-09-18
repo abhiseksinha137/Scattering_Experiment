@@ -14,7 +14,7 @@ namespace Scattering_Experiment
     class spinView
     {
         public Bitmap currentImage = null;
-        private IManagedCamera managedCamera;
+        private IManagedCamera mymanagedCamera;
         public int cameraNum = 0;
         public string camSerialNum="";
 
@@ -327,27 +327,27 @@ namespace Scattering_Experiment
         // cameras.
         public int RunSingleCamera(string savePath)
         {
-            IManagedCamera cam = managedCamera;
+            IManagedCamera camera = mymanagedCamera;
             int result = 0;
 
             try
             {
                 // Retrieve TL device nodemap and print device information
-                INodeMap nodeMapTLDevice = cam.GetTLDeviceNodeMap();
+                INodeMap nodeMapTLDevice = camera.GetTLDeviceNodeMap();
 
 
 
                 // Initialize camera
-                cam.Init();
+                camera.Init();
 
                 // Retrieve GenICam nodemap
-                INodeMap nodeMap = cam.GetNodeMap();
+                INodeMap nodeMap = camera.GetNodeMap();
 
                 // Acquire images
-                result = result | AcquireImages(cam, nodeMap, nodeMapTLDevice, savePath);
+                result = result | AcquireImages(camera, nodeMap, nodeMapTLDevice, savePath);
 
                 // Deinitialize camera
-                cam.DeInit();
+                camera.DeInit();
                 result = 1;
             }
             catch (SpinnakerException)
@@ -358,6 +358,11 @@ namespace Scattering_Experiment
 
             return result;
         }
+
+
+
+
+        
 
         // Constructor
         public spinView()
@@ -397,7 +402,7 @@ namespace Scattering_Experiment
             if (camList.Count == 1)
             {
                 cameraNum = 1;
-                managedCamera = camList[0];
+                mymanagedCamera = camList[0];
             }
 
 
@@ -447,7 +452,7 @@ namespace Scattering_Experiment
             if (camList.Count == 1)
             {
                 cameraNum = 1;
-                managedCamera = camList[0];
+                mymanagedCamera = camList[0];
             }
             if (camList.Count > 1)
             {
@@ -455,42 +460,40 @@ namespace Scattering_Experiment
 
 
                 int index = 0;
-                foreach (IManagedCamera dummymanagedCamera in camList)
-                    using (dummymanagedCamera)
+                int setIdx = 0;
+                foreach (IManagedCamera managedCamera in camList)
+                {
+                    string deviceSerialNum = "";
+                    managedCamera.Init();
+                    //Retrieve GenICam nodemap
+                    INodeMap nodeMap = managedCamera.GetTLDeviceNodeMap();
+
+                    IString iDeviceSerialNumber = nodeMap.GetNode<IString>("DeviceSerialNumber");
+                    if (iDeviceSerialNumber != null && iDeviceSerialNumber.IsReadable)
                     {
-                        try
-                        {
-                            String deviceSerialNumber = "";
-
-                            INodeMap nodeMapTLDevice = dummymanagedCamera.GetTLDeviceNodeMap();
-                            IString iDeviceSerialNumber = nodeMapTLDevice.GetNode<IString>("DeviceSerialNumber");
-                            if (iDeviceSerialNumber != null && iDeviceSerialNumber.IsReadable)
-                            {
-                                deviceSerialNumber = iDeviceSerialNumber.Value;
-                                if (cameraSerial.Equals(deviceSerialNumber)){
-                                    camSerialNum = deviceSerialNumber;
-                                    break;
-                                }
-                            }
-
-
-                            // Run example
-                            //result = result | program.RunSingleCamera(managedCamera);
-                        }
-                        catch (SpinnakerException ex)
-                        {
-                            
-                        }
-                        index = index + 1;
+                        deviceSerialNum = iDeviceSerialNumber.Value;
                     }
-                managedCamera = camList[index];
+
+
+                    // Deinitialize camera
+                    managedCamera.DeInit();
+                    if (cameraSerial.Equals(deviceSerialNum))
+                    {
+                        camSerialNum = deviceSerialNum;
+
+                        setIdx = index;
+                    }
+
+                    index = index + 1;
+                }
+                mymanagedCamera = camList[setIdx];
+
+                // Clear camera list before releasing system
+                camList.Clear();
+
+                // Release system
+                system.Dispose();
             }
-
-            // Clear camera list before releasing system
-            camList.Clear();
-
-            // Release system
-            system.Dispose();
 
             //Console.WriteLine("\nDone! Press Enter to exit...");
 

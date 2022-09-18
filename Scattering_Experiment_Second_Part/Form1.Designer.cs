@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnStartAcq = new System.Windows.Forms.Button();
             this.txtBxsavePath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,11 +60,16 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cntxMnPic1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.captureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cntxMnPic2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.captureToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBx1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBx2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.cntxMnPic1.SuspendLayout();
+            this.cntxMnPic2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStartAcq
@@ -289,20 +294,21 @@
             this.picBx2.Size = new System.Drawing.Size(410, 242);
             this.picBx2.TabIndex = 18;
             this.picBx2.TabStop = false;
+            this.picBx2.Click += new System.EventHandler(this.picBx2_Click);
             // 
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Silver;
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(6, 279);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(419, 242);
             this.chart1.TabIndex = 19;
             this.chart1.Text = "chart1";
@@ -317,15 +323,51 @@
             // captureToolStripMenuItem
             // 
             this.captureToolStripMenuItem.Name = "captureToolStripMenuItem";
-            this.captureToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.captureToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.captureToolStripMenuItem.Text = "Capture";
             this.captureToolStripMenuItem.Click += new System.EventHandler(this.captureToolStripMenuItem_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(392, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 14);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "CAM1";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(392, 267);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 14);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "CAM2";
+            // 
+            // cntxMnPic2
+            // 
+            this.cntxMnPic2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.captureToolStripMenuItem1});
+            this.cntxMnPic2.Name = "cntxMnPic2";
+            this.cntxMnPic2.Size = new System.Drawing.Size(153, 48);
+            // 
+            // captureToolStripMenuItem1
+            // 
+            this.captureToolStripMenuItem1.Name = "captureToolStripMenuItem1";
+            this.captureToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.captureToolStripMenuItem1.Text = "Capture";
+            this.captureToolStripMenuItem1.Click += new System.EventHandler(this.captureToolStripMenuItem1_Click);
             // 
             // acquireFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 533);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.picBx2);
             this.Controls.Add(this.picBx1);
@@ -350,6 +392,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBx2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.cntxMnPic1.ResumeLayout(false);
+            this.cntxMnPic2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,6 +428,10 @@
         private System.Windows.Forms.Button btnTare;
         private System.Windows.Forms.ContextMenuStrip cntxMnPic1;
         private System.Windows.Forms.ToolStripMenuItem captureToolStripMenuItem;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ContextMenuStrip cntxMnPic2;
+        private System.Windows.Forms.ToolStripMenuItem captureToolStripMenuItem1;
     }
 }
 
