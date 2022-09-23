@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnStartAcq = new System.Windows.Forms.Button();
             this.txtBxsavePath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@
             this.cntxMnPic2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.captureToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPlot = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBx1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBx2)).BeginInit();
@@ -300,16 +301,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Silver;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(6, 279);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(419, 242);
             this.chart1.TabIndex = 19;
             this.chart1.Text = "chart1";
@@ -372,11 +373,22 @@
             this.btnPlot.UseVisualStyleBackColor = true;
             this.btnPlot.Click += new System.EventHandler(this.btnPlot_Click);
             // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(328, 147);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.TabIndex = 25;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
             // acquireFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 533);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPlot);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label8);
@@ -445,6 +457,7 @@
         private System.Windows.Forms.ContextMenuStrip cntxMnPic2;
         private System.Windows.Forms.ToolStripMenuItem captureToolStripMenuItem1;
         private System.Windows.Forms.Button btnPlot;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 

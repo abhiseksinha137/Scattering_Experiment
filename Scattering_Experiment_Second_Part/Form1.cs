@@ -24,6 +24,7 @@ namespace Scattering_Experiment
         string basePath="";
         Color pnlColor;
         bool ismoving = true;
+        bool acquire = true;
         public acquireFrm()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace Scattering_Experiment
             commStage.sendSerial(steps.ToString());
             int currentPos= int.Parse(Properties.Settings.Default.pos) + steps;
             Properties.Settings.Default.pos = currentPos.ToString();
+            Properties.Settings.Default.Save();
             txtBxCurrent.Text = Properties.Settings.Default.pos;
         }
 
@@ -60,6 +62,9 @@ namespace Scattering_Experiment
             process.Start();
             process.WaitForExit();
 
+            // Plot
+            PlotChart(dataName);
+
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -74,6 +79,7 @@ namespace Scattering_Experiment
         private void btnStartAcq_Click(object sender, EventArgs e)
         {
             acquireData();
+            Application.DoEvents();
             MessageBox.Show("Done");
         }
 
@@ -114,6 +120,7 @@ namespace Scattering_Experiment
             int x0 = int.Parse(txtBxFrom.Text);
             int xf = int.Parse(txtBxTo.Text);
             int dx = int.Parse(txtBxStep.Text);
+            acquire = true;
 
             dx = Math.Abs(dx);
             int N = Math.Abs(xf - x0) / dx;
@@ -129,21 +136,37 @@ namespace Scattering_Experiment
 
                 // Move Stage
                 moveTo(x);
-                sleep(1000);
+                sleep(2000);
 
                 string pos = txtBxCurrent.Text;
-                string savepath = txtBxsavePath.Text+"/";
+                string savepathBase = txtBxsavePath.Text+"/";
 
 
-                string spectrumName = savepath + x.ToString() + ".csv";
-                //saveTheSpectrum(spectrumName);
+                string savePathSpectrum = savepathBase + "Spectrum/";
+                if (!Directory.Exists(savePathSpectrum))
+                    Directory.CreateDirectory(savePathSpectrum);
+                string spectrumName = savePathSpectrum + x.ToString() + ".csv";
+                saveTheSpectrum(spectrumName);
 
 
-                string imageName = savepath + x.ToString() + ".bmp";
-                //captureImage(imageName);
+                string savePathCam1 = savepathBase + "Cam1/";
+                if (!Directory.Exists(savePathCam1))
+                    Directory.CreateDirectory(savePathCam1);
+                string imageName1 = savePathCam1 + x.ToString() + "_CAM1.bmp";
+                captureImage("CAM1",imageName1);
+
+
+                string savePathCam2 = savepathBase + "Cam2/";
+                if (!Directory.Exists(savePathCam2))
+                    Directory.CreateDirectory(savePathCam2);
+                string imageName2 = savePathCam2 + x.ToString() + "_CAM2.bmp";
+                captureImage("CAM2", imageName2);
 
 
                 n = n + 1;
+                Application.DoEvents();
+                if (acquire == false)
+                    break;
             }
 
         }
@@ -394,6 +417,11 @@ namespace Scattering_Experiment
                     // ...
             }
             return folderPath;
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            acquire = false;
         }
     }
 

@@ -1,0 +1,12 @@
+E:\VB.NEt\Scattering_Experiment\tryConex\bin\Debug\tryConex.exe.config
+E:\VB.NEt\Scattering_Experiment\tryConex\obj\Debug\tryConex.csprojResolveAssemblyReference.cache
+E:\VB.NEt\Scattering_Experiment\tryConex\obj\Debug\tryConex.Form1.resources
+E:\VB.NEt\Scattering_Experiment\tryConex\obj\Debug\tryConex.Properties.Resources.resources
+E:\VB.NEt\Scattering_Experiment\tryConex\obj\Debug\tryConex.csproj.GenerateResource.Cache
+E:\VB.NEt\Scattering_Experiment\tryConex\bin\Debug\tryConex.exe
+E:\VB.NEt\Scattering_Experiment\tryConex\bin\Debug\tryConex.pdb
+E:\VB.NEt\Scattering_Experiment\tryConex\bin\Debug\ConexAGPCmdLib.DLL
+E:\VB.NEt\Scattering_Experiment\tryConex\bin\Debug\VCPWrap.dll
+E:\VB.NEt\Scattering_Experiment\tryConex\bin\Debug\Logging.dll
+E:\VB.NEt\Scattering_Experiment\tryConex\obj\Debug\tryConex.exe
+E:\VB.NEt\Scattering_Experiment\tryConex\obj\Debug\tryConex.pdb
