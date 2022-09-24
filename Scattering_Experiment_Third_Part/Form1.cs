@@ -210,6 +210,8 @@ namespace Scattering_Experiment
 
 
                             theta = theta + dtheta;
+                            if (!acquire)
+                                break;
                         }
                     }
                 }
@@ -273,6 +275,7 @@ namespace Scattering_Experiment
             else
             {
                 MessageBox.Show("No Conex Stage Found!");
+                conex.OpenInstrument("COM7");
             }
 
             // CheckBoxes
