@@ -659,6 +659,7 @@ namespace Scattering_Experiment
                 txtBxStep.Enabled = true;
         }
 
+        
     }
 
 }

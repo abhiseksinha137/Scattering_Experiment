@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tryConex", "tryConex\tryCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scattering_Experiment_Third_Part", "Scattering_Experiment_Third_Part\Scattering_Experiment_Third_Part.csproj", "{DCB1070C-330D-42E6-A0B9-2BAF59B9304E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scattering_Experiment_Third_Part_Camera_Continous", "Scattering_Experiment_Third_Part_Camera_Continous\Scattering_Experiment_Third_Part_Camera_Continous.csproj", "{8F0EFF71-17AF-4AA8-9527-8F7478598D12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,18 @@ Global
 		{DCB1070C-330D-42E6-A0B9-2BAF59B9304E}.Release|x64.Build.0 = Release|Any CPU
 		{DCB1070C-330D-42E6-A0B9-2BAF59B9304E}.Release|x86.ActiveCfg = Release|Any CPU
 		{DCB1070C-330D-42E6-A0B9-2BAF59B9304E}.Release|x86.Build.0 = Release|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Debug|x64.Build.0 = Debug|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Debug|x86.Build.0 = Debug|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Release|x64.ActiveCfg = Release|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Release|x64.Build.0 = Release|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Release|x86.ActiveCfg = Release|Any CPU
+		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

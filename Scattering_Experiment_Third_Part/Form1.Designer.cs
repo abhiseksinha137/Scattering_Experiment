@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnStartAcq = new System.Windows.Forms.Button();
             this.txtBxsavePath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.btnTare = new System.Windows.Forms.Button();
             this.pnlMotionIndicator = new System.Windows.Forms.Panel();
             this.btnMoveRel = new System.Windows.Forms.Button();
@@ -67,17 +68,16 @@
             this.btnPlot = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtBxconexTarget = new System.Windows.Forms.TextBox();
-            this.txtBxconexRelative = new System.Windows.Forms.TextBox();
-            this.btnConexMoveAbs = new System.Windows.Forms.Button();
-            this.btnConexMoveRel = new System.Windows.Forms.Button();
             this.txtBxconexCurrentPos = new System.Windows.Forms.TextBox();
+            this.btnConexMoveRel = new System.Windows.Forms.Button();
+            this.btnConexMoveAbs = new System.Windows.Forms.Button();
+            this.txtBxconexRelative = new System.Windows.Forms.TextBox();
+            this.txtBxconexTarget = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.chkBxAcqureStage = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chkBxAcqConex = new System.Windows.Forms.CheckBox();
@@ -87,6 +87,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtBxConexStep = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.bckWorkerCam1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBx1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBx2)).BeginInit();
@@ -233,6 +234,15 @@
             this.panel1.Size = new System.Drawing.Size(397, 80);
             this.panel1.TabIndex = 13;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, -3);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(35, 13);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Stage";
+            // 
             // btnTare
             // 
             this.btnTare.Location = new System.Drawing.Point(259, 47);
@@ -326,16 +336,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Silver;
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(6, 495);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(419, 191);
             this.chart1.TabIndex = 19;
             this.chart1.Text = "chart1";
@@ -427,66 +437,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "WavePlate";
             // 
-            // label9
+            // txtBxconexCurrentPos
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Target";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 77);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Relative";
-            // 
-            // btnHome
-            // 
-            this.btnHome.Location = new System.Drawing.Point(259, 77);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(72, 23);
-            this.btnHome.TabIndex = 2;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(212, 44);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Current";
-            // 
-            // txtBxconexTarget
-            // 
-            this.txtBxconexTarget.Location = new System.Drawing.Point(72, 41);
-            this.txtBxconexTarget.Name = "txtBxconexTarget";
-            this.txtBxconexTarget.Size = new System.Drawing.Size(75, 20);
-            this.txtBxconexTarget.TabIndex = 19;
-            // 
-            // txtBxconexRelative
-            // 
-            this.txtBxconexRelative.Location = new System.Drawing.Point(72, 74);
-            this.txtBxconexRelative.Name = "txtBxconexRelative";
-            this.txtBxconexRelative.Size = new System.Drawing.Size(75, 20);
-            this.txtBxconexRelative.TabIndex = 20;
-            // 
-            // btnConexMoveAbs
-            // 
-            this.btnConexMoveAbs.Location = new System.Drawing.Point(155, 37);
-            this.btnConexMoveAbs.Name = "btnConexMoveAbs";
-            this.btnConexMoveAbs.Size = new System.Drawing.Size(45, 26);
-            this.btnConexMoveAbs.TabIndex = 19;
-            this.btnConexMoveAbs.Text = "Go";
-            this.btnConexMoveAbs.UseVisualStyleBackColor = true;
-            this.btnConexMoveAbs.Click += new System.EventHandler(this.btnConexMoveAbs_Click);
+            this.txtBxconexCurrentPos.Enabled = false;
+            this.txtBxconexCurrentPos.Location = new System.Drawing.Point(259, 41);
+            this.txtBxconexCurrentPos.Name = "txtBxconexCurrentPos";
+            this.txtBxconexCurrentPos.Size = new System.Drawing.Size(75, 20);
+            this.txtBxconexCurrentPos.TabIndex = 19;
             // 
             // btnConexMoveRel
             // 
@@ -498,13 +455,66 @@
             this.btnConexMoveRel.UseVisualStyleBackColor = true;
             this.btnConexMoveRel.Click += new System.EventHandler(this.btnConexMoveRel_Click);
             // 
-            // txtBxconexCurrentPos
+            // btnConexMoveAbs
             // 
-            this.txtBxconexCurrentPos.Enabled = false;
-            this.txtBxconexCurrentPos.Location = new System.Drawing.Point(259, 41);
-            this.txtBxconexCurrentPos.Name = "txtBxconexCurrentPos";
-            this.txtBxconexCurrentPos.Size = new System.Drawing.Size(75, 20);
-            this.txtBxconexCurrentPos.TabIndex = 19;
+            this.btnConexMoveAbs.Location = new System.Drawing.Point(155, 37);
+            this.btnConexMoveAbs.Name = "btnConexMoveAbs";
+            this.btnConexMoveAbs.Size = new System.Drawing.Size(45, 26);
+            this.btnConexMoveAbs.TabIndex = 19;
+            this.btnConexMoveAbs.Text = "Go";
+            this.btnConexMoveAbs.UseVisualStyleBackColor = true;
+            this.btnConexMoveAbs.Click += new System.EventHandler(this.btnConexMoveAbs_Click);
+            // 
+            // txtBxconexRelative
+            // 
+            this.txtBxconexRelative.Location = new System.Drawing.Point(72, 74);
+            this.txtBxconexRelative.Name = "txtBxconexRelative";
+            this.txtBxconexRelative.Size = new System.Drawing.Size(75, 20);
+            this.txtBxconexRelative.TabIndex = 20;
+            // 
+            // txtBxconexTarget
+            // 
+            this.txtBxconexTarget.Location = new System.Drawing.Point(72, 41);
+            this.txtBxconexTarget.Name = "txtBxconexTarget";
+            this.txtBxconexTarget.Size = new System.Drawing.Size(75, 20);
+            this.txtBxconexTarget.TabIndex = 19;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(212, 44);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Current";
+            // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(259, 77);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(72, 23);
+            this.btnHome.TabIndex = 2;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 77);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(46, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Relative";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 44);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Target";
             // 
             // groupBox2
             // 
@@ -521,15 +531,6 @@
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Stage";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, -3);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(35, 13);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "Stage";
             // 
             // chkBxAcqureStage
             // 
@@ -613,6 +614,11 @@
             this.label16.Size = new System.Drawing.Size(29, 13);
             this.label16.TabIndex = 15;
             this.label16.Text = "Step";
+            // 
+            // bckWorkerCam1
+            // 
+            this.bckWorkerCam1.WorkerSupportsCancellation = true;
+            
             // 
             // acquireFrm
             // 
@@ -714,6 +720,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtBxConexStep;
         private System.Windows.Forms.Label label16;
+        private System.ComponentModel.BackgroundWorker bckWorkerCam1;
     }
 }
 

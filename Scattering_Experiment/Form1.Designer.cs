@@ -197,6 +197,7 @@
             this.pnlMotionIndicator.Size = new System.Drawing.Size(17, 16);
             this.pnlMotionIndicator.TabIndex = 17;
             this.pnlMotionIndicator.BackColorChanged += new System.EventHandler(this.pnlMotionIndicator_BackColorChanged);
+            this.pnlMotionIndicator.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMotionIndicator_Paint);
             // 
             // btnMoveRel
             // 

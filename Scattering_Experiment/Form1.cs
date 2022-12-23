@@ -226,6 +226,11 @@ namespace Scattering_Experiment
             }
             label8.Text = ismoving.ToString();
         }
+
+        private void pnlMotionIndicator_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }
