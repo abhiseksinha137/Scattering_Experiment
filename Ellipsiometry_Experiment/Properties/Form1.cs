@@ -26,6 +26,8 @@ namespace Scattering_Experiment
         bool ismoving = true;
         bool acquire = true;
         string err = "";
+        double stepsPerDegree = 100;
+        bool stageMoving = false;
 
         Newport.ConexAGPCmdLib.ConexAGPCmds conex;
         public acquireFrm()
@@ -34,12 +36,18 @@ namespace Scattering_Experiment
 
         }
         void moveStage(int steps)
-        { 
+        {
+            stageMoving = true;
             commStage.sendSerial(steps.ToString());
             int currentPos= int.Parse(Properties.Settings.Default.pos) + steps;
             Properties.Settings.Default.pos = currentPos.ToString();
             Properties.Settings.Default.Save();
             txtBxCurrent.Text = Properties.Settings.Default.pos;
+
+            while (stageMoving)
+            {
+                System.Threading.Thread.Sleep(100);
+            }
         }
 
 
@@ -81,7 +89,8 @@ namespace Scattering_Experiment
 
         private void btnStartAcq_Click(object sender, EventArgs e)
         {
-            acquireData();
+            //acquireData();
+            acquireData2();
             Application.DoEvents();
             MessageBox.Show("Done");
         }
@@ -91,18 +100,24 @@ namespace Scattering_Experiment
         public void captureImage(String camName, string imageName)
         {
             if (camName.Equals("CAM1")){
-                spinView cam = new spinView("22175210");
-                string imagePath = imageName;
-                int result = cam.RunSingleCamera(imagePath);
-                picBx1.Image = cam.currentImage;
-                picBx1.Refresh();
-                resizePicBox(picBx1);
+                //spinView cam = new spinView("22175210");
+                //string imagePath = imageName;
+                //int result = cam.RunSingleCamera(imagePath);
+                //picBx1.Image = cam.currentImage;
+                //picBx1.Refresh();
+                //resizePicBox(picBx1);
             }
             if (camName.Equals("CAM2"))
             {
                 spinView cam = new spinView("17197493");
                 string imagePath = imageName;
                 int result = cam.RunSingleCamera(imagePath);
+                while (cam.currentImage == null)
+                {
+                    //MessageBox.Show("Null Imgae Seen");
+                    result = cam.RunSingleCamera(imagePath);
+                    
+                }
                 picBx2.Image = cam.currentImage;
                 picBx2.Refresh();
                 resizePicBox(picBx2);
@@ -251,11 +266,150 @@ namespace Scattering_Experiment
 
         }
 
+
+
+        public void acquireData2()
+        {
+            int x0 = int.Parse(txtBxFrom.Text);
+            int xf = int.Parse(txtBxTo.Text);
+            int dx = int.Parse(txtBxStep.Text);
+
+
+
+            int N = 0;
+
+            acquire = true;
+
+            dx = Math.Abs(dx);
+            if (dx > 0)
+                N = Math.Abs(xf - x0) / dx;
+            else
+                N = 0;
+
+            if ((xf - x0) > 0)
+                dx = -dx;
+
+
+
+
+            int n = 0;
+            while (n <= 0)
+            {
+                Application.DoEvents();
+                int x = x0 - n * dx;
+
+                // Move Stage
+                //moveTo(x);
+                sleep(2000);
+
+                string pos = "";
+                string savepathBase = "";
+                string savePathSpectrum = "";
+                string spectrumName = "";
+                string savePathCam1 = "";
+                string imageName1 = "";
+                string savePathCam2 = "";
+                string imageName2 = "";
+
+                if (chkBxAcqConex.CheckState == CheckState.Checked)
+                {
+                    double theta0 = double.Parse(txtBxConexFrom.Text);
+                    double thetaf = double.Parse(txtBxConexTo.Text);
+                    double dtheta = double.Parse(txtBxConexStep.Text);
+
+                    if (thetaf < theta0)
+                        dtheta = -1 * Math.Abs(dtheta);
+                    else
+                        dtheta = Math.Abs(dtheta);
+                    if (dtheta < 0)
+                    {
+                        MessageBox.Show("Ensure theta step > 0");
+                        break;
+                    }
+                    else
+                    {
+                        double theta = theta0;
+                        while (theta <= thetaf)
+                        {
+                            Application.DoEvents();
+                            conexMoveAbs(theta);
+
+                            pos = txtBxCurrent.Text;
+                            savepathBase = txtBxsavePath.Text + "/";
+
+
+                            savePathSpectrum = savepathBase + "Spectrum/";
+                            //if (!Directory.Exists(savePathSpectrum))
+                            //    Directory.CreateDirectory(savePathSpectrum);
+                            //spectrumName = savePathSpectrum + "Pos" + x.ToString() + "_Pol" + theta.ToString() + ".csv";
+                            //saveTheSpectrum(spectrumName);
+
+
+                            savePathCam1 = savepathBase + "Cam1/";
+                            //if (!Directory.Exists(savePathCam1))
+                            //    Directory.CreateDirectory(savePathCam1);
+                            //imageName1 = savePathCam1 + "Pos" + x.ToString() + "_Pol" + theta.ToString() + "_CAM1.bmp";
+                            //captureImage("CAM1", imageName1);
+
+
+                            savePathCam2 = savepathBase + "";
+                            if (!Directory.Exists(savePathCam2))
+                                Directory.CreateDirectory(savePathCam2);
+                            imageName2 = savePathCam2  + "Angle_" + theta.ToString() + ".bmp";
+                            captureImage("CAM2", imageName2);
+
+
+                            theta = theta + dtheta;
+                            if (!acquire)
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+
+                    pos = txtBxCurrent.Text;
+                    savepathBase = txtBxsavePath.Text + "/";
+
+
+                    savePathSpectrum = savepathBase + "Spectrum/";
+                    if (!Directory.Exists(savePathSpectrum))
+                        Directory.CreateDirectory(savePathSpectrum);
+                    spectrumName = savePathSpectrum + x.ToString() + ".csv";
+                    saveTheSpectrum(spectrumName);
+
+
+                    savePathCam1 = savepathBase + "Cam1/";
+                    if (!Directory.Exists(savePathCam1))
+                        Directory.CreateDirectory(savePathCam1);
+                    imageName1 = savePathCam1 + x.ToString() + "_CAM1.bmp";
+                    captureImage("CAM1", imageName1);
+
+
+                    savePathCam2 = savepathBase + "Cam2/";
+                    if (!Directory.Exists(savePathCam2))
+                        Directory.CreateDirectory(savePathCam2);
+                    imageName2 = savePathCam2 + x.ToString() + "_CAM2.bmp";
+                    captureImage("CAM2", imageName2);
+
+                }
+                n = n + 1;
+                Application.DoEvents();
+                if (acquire == false)
+                    break;
+                break;
+            }
+
+        }
+
+
+
+
         private void acquireFrm_Load(object sender, EventArgs e)
         {
             commStage.baudrate = 9600;
             txtBxCurrent.Text = Properties.Settings.Default.pos;
-            picBx1.ContextMenuStrip = cntxMnPic1;
+            //picBx1.ContextMenuStrip = cntxMnPic1;
             picBx2.ContextMenuStrip = cntxMnPic2;
 
             // Initalize the conex
@@ -280,7 +434,20 @@ namespace Scattering_Experiment
 
             // CheckBoxes
             chechChkBoxStage();
+
+            commStage.DataReceived +=stageDataReceived;
+
         }
+
+        private void stageDataReceived()
+        {
+            string response = commStage.ReadData();
+            if (response == "1")
+            {
+                stageMoving = false;
+            }
+        }
+
         //***************************************************************************************
         //************************ Conex Functions ***********************************************
         //****************************************************************************************
@@ -373,10 +540,18 @@ namespace Scattering_Experiment
         // ********************************************************************************************
         // ***************************** STAGE ******************************************************
         // ********************************************************************************************
+        public int DegtoSteps(double deg)
+        {
+            return (int)(deg * stepsPerDegree);
+        }
+        public double StepsToDeg(int steps)
+        {
+            return (steps/stepsPerDegree);
+        }
         private void btnGo_Click(object sender, EventArgs e)
         {
-            int target = int.Parse(txtBxTarget.Text);
-            moveTo(target);
+            double targetDeg= double.Parse(txtBxTarget.Text);
+            moveTo(DegtoSteps(targetDeg));
         }
         private void moveTo(int target)
         {
@@ -403,8 +578,9 @@ namespace Scattering_Experiment
         private void btnMoveRel_Click(object sender, EventArgs e)
         {
             int current = int.Parse(txtBxCurrent.Text);
-            int rel = int.Parse(txtBxMoveRel.Text);
-            moveStage(rel);
+
+            double relDeg = double.Parse(txtBxMoveRel.Text);
+            moveStage(DegtoSteps(relDeg));
 
         }
 
@@ -430,6 +606,10 @@ namespace Scattering_Experiment
             //        pnlMotionIndicator.BackColor = Color.Red;
             //    }
             //    currentVal = val;
+            int current_steps = int.Parse(txtBxCurrent.Text);
+            double currentDegree = StepsToDeg(current_steps);
+            txtBxCurrentDeg.Text = currentDegree.ToString();
+
         }
 
         private void pnlMotionIndicator_BackColorChanged(object sender, EventArgs e)
@@ -518,6 +698,7 @@ namespace Scattering_Experiment
 
         List<Read> rrList = new List<Read>();
 
+
         void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -547,7 +728,7 @@ namespace Scattering_Experiment
             }
             if (yBox.Items.Count > 1) yBox.SelectedIndex = 1; //select second item
 
-            Plot.Draw(rrList, xBox, yBox, chart1);
+            
         }
         private void btnPlot_Click(object sender, EventArgs e)
         {
@@ -659,7 +840,15 @@ namespace Scattering_Experiment
                 txtBxStep.Enabled = true;
         }
 
-        
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bckWorkerCam1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
     }
 
 }

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnStartAcq = new System.Windows.Forms.Button();
             this.txtBxsavePath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,12 +53,9 @@
             this.txtBxStep = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.commStage = new customControl.comboSerial();
-            this.picBx1 = new System.Windows.Forms.PictureBox();
             this.picBx2 = new System.Windows.Forms.PictureBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cntxMnPic1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.captureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cntxMnPic2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.captureToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,10 +82,10 @@
             this.txtBxConexStep = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.bckWorkerCam1 = new System.ComponentModel.BackgroundWorker();
+            this.txtBxCurrentDeg = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBx1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBx2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.cntxMnPic1.SuspendLayout();
             this.cntxMnPic2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -138,9 +132,9 @@
             // txtBxCurrent
             // 
             this.txtBxCurrent.Enabled = false;
-            this.txtBxCurrent.Location = new System.Drawing.Point(259, 18);
+            this.txtBxCurrent.Location = new System.Drawing.Point(276, 18);
             this.txtBxCurrent.Name = "txtBxCurrent";
-            this.txtBxCurrent.Size = new System.Drawing.Size(75, 20);
+            this.txtBxCurrent.Size = new System.Drawing.Size(58, 20);
             this.txtBxCurrent.TabIndex = 4;
             this.txtBxCurrent.TextChanged += new System.EventHandler(this.txtBxCurrent_TextChanged);
             // 
@@ -156,7 +150,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(212, 19);
+            this.label3.Location = new System.Drawing.Point(212, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 6;
@@ -188,6 +182,7 @@
             this.txtBxFrom.Name = "txtBxFrom";
             this.txtBxFrom.Size = new System.Drawing.Size(75, 20);
             this.txtBxFrom.TabIndex = 9;
+            this.txtBxFrom.Text = "1";
             // 
             // txtBxTo
             // 
@@ -195,6 +190,7 @@
             this.txtBxTo.Name = "txtBxTo";
             this.txtBxTo.Size = new System.Drawing.Size(75, 20);
             this.txtBxTo.TabIndex = 10;
+            this.txtBxTo.Text = "2";
             // 
             // label4
             // 
@@ -217,6 +213,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.txtBxCurrentDeg);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.btnTare);
             this.panel1.Controls.Add(this.pnlMotionIndicator);
@@ -227,6 +224,7 @@
             this.panel1.Controls.Add(this.txtBxTarget);
             this.panel1.Controls.Add(this.txtBxCurrent);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label3);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(6, 271);
@@ -245,9 +243,9 @@
             // 
             // btnTare
             // 
-            this.btnTare.Location = new System.Drawing.Point(259, 47);
+            this.btnTare.Location = new System.Drawing.Point(342, 16);
             this.btnTare.Name = "btnTare";
-            this.btnTare.Size = new System.Drawing.Size(75, 23);
+            this.btnTare.Size = new System.Drawing.Size(48, 23);
             this.btnTare.TabIndex = 18;
             this.btnTare.Text = "Tare";
             this.btnTare.UseVisualStyleBackColor = true;
@@ -295,6 +293,7 @@
             this.txtBxStep.Name = "txtBxStep";
             this.txtBxStep.Size = new System.Drawing.Size(75, 20);
             this.txtBxStep.TabIndex = 14;
+            this.txtBxStep.Text = "1";
             // 
             // label6
             // 
@@ -312,43 +311,15 @@
             this.commStage.Size = new System.Drawing.Size(102, 72);
             this.commStage.TabIndex = 16;
             // 
-            // picBx1
-            // 
-            this.picBx1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.picBx1.Location = new System.Drawing.Point(462, 19);
-            this.picBx1.Name = "picBx1";
-            this.picBx1.Size = new System.Drawing.Size(410, 268);
-            this.picBx1.TabIndex = 17;
-            this.picBx1.TabStop = false;
-            this.picBx1.BackgroundImageChanged += new System.EventHandler(this.picBx1_BackgroundImageChanged);
-            this.picBx1.Click += new System.EventHandler(this.picBx1_Click);
-            // 
             // picBx2
             // 
             this.picBx2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.picBx2.Location = new System.Drawing.Point(431, 314);
+            this.picBx2.Location = new System.Drawing.Point(424, 74);
             this.picBx2.Name = "picBx2";
-            this.picBx2.Size = new System.Drawing.Size(480, 372);
+            this.picBx2.Size = new System.Drawing.Size(480, 406);
             this.picBx2.TabIndex = 18;
             this.picBx2.TabStop = false;
             this.picBx2.Click += new System.EventHandler(this.picBx2_Click);
-            // 
-            // chart1
-            // 
-            this.chart1.BackColor = System.Drawing.Color.Silver;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(6, 495);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(419, 191);
-            this.chart1.TabIndex = 19;
-            this.chart1.Text = "chart1";
             // 
             // cntxMnPic1
             // 
@@ -364,21 +335,11 @@
             this.captureToolStripMenuItem.Text = "Capture";
             this.captureToolStripMenuItem.Click += new System.EventHandler(this.captureToolStripMenuItem_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(443, 2);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 14);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "CAM1";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(409, 295);
+            this.label10.Location = new System.Drawing.Point(421, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 14);
             this.label10.TabIndex = 22;
@@ -535,6 +496,8 @@
             // chkBxAcqureStage
             // 
             this.chkBxAcqureStage.AutoSize = true;
+            this.chkBxAcqureStage.Checked = true;
+            this.chkBxAcqureStage.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBxAcqureStage.Location = new System.Drawing.Point(65, 0);
             this.chkBxAcqureStage.Name = "chkBxAcqureStage";
             this.chkBxAcqureStage.Size = new System.Drawing.Size(15, 14);
@@ -561,6 +524,8 @@
             // chkBxAcqConex
             // 
             this.chkBxAcqConex.AutoSize = true;
+            this.chkBxAcqConex.Checked = true;
+            this.chkBxAcqConex.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBxAcqConex.Location = new System.Drawing.Point(65, 0);
             this.chkBxAcqConex.Name = "chkBxAcqConex";
             this.chkBxAcqConex.Size = new System.Drawing.Size(15, 14);
@@ -573,6 +538,7 @@
             this.txtBxConexTo.Name = "txtBxConexTo";
             this.txtBxConexTo.Size = new System.Drawing.Size(75, 20);
             this.txtBxConexTo.TabIndex = 10;
+            this.txtBxConexTo.Text = "231";
             // 
             // txtBxConexFrom
             // 
@@ -580,6 +546,7 @@
             this.txtBxConexFrom.Name = "txtBxConexFrom";
             this.txtBxConexFrom.Size = new System.Drawing.Size(75, 20);
             this.txtBxConexFrom.TabIndex = 9;
+            this.txtBxConexFrom.Text = "51";
             // 
             // label14
             // 
@@ -605,6 +572,7 @@
             this.txtBxConexStep.Name = "txtBxConexStep";
             this.txtBxConexStep.Size = new System.Drawing.Size(75, 20);
             this.txtBxConexStep.TabIndex = 14;
+            this.txtBxConexStep.Text = "5";
             // 
             // label16
             // 
@@ -618,23 +586,38 @@
             // bckWorkerCam1
             // 
             this.bckWorkerCam1.WorkerSupportsCancellation = true;
-            
+            this.bckWorkerCam1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bckWorkerCam1_DoWork);
+            // 
+            // txtBxCurrentDeg
+            // 
+            this.txtBxCurrentDeg.Enabled = false;
+            this.txtBxCurrentDeg.Location = new System.Drawing.Point(276, 47);
+            this.txtBxCurrentDeg.Name = "txtBxCurrentDeg";
+            this.txtBxCurrentDeg.Size = new System.Drawing.Size(58, 20);
+            this.txtBxCurrentDeg.TabIndex = 19;
+            this.txtBxCurrentDeg.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(211, 50);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Current Deg";
             // 
             // acquireFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 692);
+            this.ClientSize = new System.Drawing.Size(916, 499);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPlot);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.chart1);
             this.Controls.Add(this.picBx2);
-            this.Controls.Add(this.picBx1);
             this.Controls.Add(this.commStage);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBrowse);
@@ -647,9 +630,7 @@
             this.Load += new System.EventHandler(this.acquireFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBx1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBx2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.cntxMnPic1.ResumeLayout(false);
             this.cntxMnPic2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -687,13 +668,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtBxMoveRel;
         private System.Windows.Forms.Panel pnlMotionIndicator;
-        private System.Windows.Forms.PictureBox picBx1;
         private System.Windows.Forms.PictureBox picBx2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button btnTare;
         private System.Windows.Forms.ContextMenuStrip cntxMnPic1;
         private System.Windows.Forms.ToolStripMenuItem captureToolStripMenuItem;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ContextMenuStrip cntxMnPic2;
         private System.Windows.Forms.ToolStripMenuItem captureToolStripMenuItem1;
@@ -721,6 +699,8 @@
         private System.Windows.Forms.TextBox txtBxConexStep;
         private System.Windows.Forms.Label label16;
         private System.ComponentModel.BackgroundWorker bckWorkerCam1;
+        private System.Windows.Forms.TextBox txtBxCurrentDeg;
+        private System.Windows.Forms.Label label8;
     }
 }
 

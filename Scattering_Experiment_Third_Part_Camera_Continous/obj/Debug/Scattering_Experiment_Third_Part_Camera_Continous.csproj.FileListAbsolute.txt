@@ -1,4 +1,3 @@
-E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Third_Part_Camera_Continous\obj\Debug\Scattering_Experiment_Third_Part_Camera_Continous.csprojResolveAssemblyReference.cache
 E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Third_Part_Camera_Continous\obj\Debug\Scattering_Experiment.contCam.resources
 E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Third_Part_Camera_Continous\obj\Debug\Scattering_Experiment.acquireFrm.resources
 E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Third_Part_Camera_Continous\obj\Debug\Scattering_Experiment.Properties.Resources.resources
@@ -14,3 +13,4 @@ E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Third_Part_Camera_Continou
 E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Third_Part_Camera_Continous\bin\Debug\VCPWrap.dll
 E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Third_Part_Camera_Continous\bin\Debug\Logging.dll
 E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Third_Part_Camera_Continous\bin\Debug\customControl.pdb
+E:\VB.NEt\Scattering_Experiment\Scattering_Experiment_Third_Part_Camera_Continous\obj\Debug\Scattering_Experiment_Third_Part_Camera_Continous.csprojResolveAssemblyReference.cache

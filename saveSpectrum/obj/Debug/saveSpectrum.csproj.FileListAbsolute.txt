@@ -2,3 +2,5 @@ E:\VB.NEt\Scattering_Experiment\saveSpectrum\bin\Debug\saveSpectrum.dll
 E:\VB.NEt\Scattering_Experiment\saveSpectrum\bin\Debug\saveSpectrum.pdb
 E:\VB.NEt\Scattering_Experiment\saveSpectrum\obj\Debug\saveSpectrum.dll
 E:\VB.NEt\Scattering_Experiment\saveSpectrum\obj\Debug\saveSpectrum.pdb
+E:\VB.NEt\Scattering_Experiment\saveSpectrum\obj\Debug\saveSpectrum.csproj.AssemblyReference.cache
+E:\VB.NEt\Scattering_Experiment\saveSpectrum\obj\Debug\saveSpectrum.csproj.CoreCompileInputs.cache

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scattering_Experiment_Third
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scattering_Experiment_Third_Part_Camera_Continous", "Scattering_Experiment_Third_Part_Camera_Continous\Scattering_Experiment_Third_Part_Camera_Continous.csproj", "{8F0EFF71-17AF-4AA8-9527-8F7478598D12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ellipsiometry_Experiment", "Ellipsiometry_Experiment\Ellipsiometry_Experiment.csproj", "{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,8 +127,23 @@ Global
 		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Release|x64.Build.0 = Release|Any CPU
 		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Release|x86.ActiveCfg = Release|Any CPU
 		{8F0EFF71-17AF-4AA8-9527-8F7478598D12}.Release|x86.Build.0 = Release|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Debug|x64.Build.0 = Debug|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Debug|x86.Build.0 = Debug|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Release|x64.ActiveCfg = Release|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Release|x64.Build.0 = Release|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Release|x86.ActiveCfg = Release|Any CPU
+		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F14E1DA1-E653-4175-B3BF-553C4F175583}
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,3 @@
-E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.csprojResolveAssemblyReference.cache
-E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.Form1.resources
 E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.Properties.Resources.resources
 E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.csproj.GenerateResource.Cache
 E:\VB.NEt\Scattering_Experiment\CameraControl\bin\Debug\CameraControl.exe.config
@@ -8,3 +6,8 @@ E:\VB.NEt\Scattering_Experiment\CameraControl\bin\Debug\CameraControl.pdb
 E:\VB.NEt\Scattering_Experiment\CameraControl\bin\Debug\SpinnakerNETd_v140.dll
 E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.exe
 E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.pdb
+E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.csproj.AssemblyReference.cache
+E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.csproj.SuggestedBindingRedirects.cache
+E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\Scattering_Experiment.Form1.resources
+E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.csproj.CoreCompileInputs.cache
+E:\VB.NEt\Scattering_Experiment\CameraControl\obj\Debug\CameraControl.csproj.CopyComplete

@@ -7,3 +7,7 @@ E:\VB.NEt\Scattering_Experiment\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSh
 E:\VB.NEt\bin64\vs2015\Acquisition_CSharpd_v140.pdb
 E:\VB.NEt\bin64\vs2015\Acquisition_CSharpd_v140.exe
 E:\VB.NEt\Scattering_Experiment\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharpd_v140.exe
+E:\VB.NEt\Scattering_Experiment\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharp_vs2015.csproj.AssemblyReference.cache
+E:\VB.NEt\Scattering_Experiment\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharp_vs2015.csproj.SuggestedBindingRedirects.cache
+E:\VB.NEt\Scattering_Experiment\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharp_vs2015.csproj.CoreCompileInputs.cache
+E:\VB.NEt\Scattering_Experiment\Acquisition_CSharp\obj\x64\Debug\Acquisition_CSharp_vs2015.csproj.CopyComplete
