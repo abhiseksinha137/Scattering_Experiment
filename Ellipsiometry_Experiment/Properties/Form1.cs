@@ -46,10 +46,12 @@ namespace Scattering_Experiment
                 Properties.Settings.Default.Save();
                 txtBxCurrent.Text = Properties.Settings.Default.pos;
 
-                while (stageMoving)
-                {
-                    System.Threading.Thread.Sleep(100);
-                }
+                //while (stageMoving)
+                //{
+                //    System.Threading.Thread.Sleep(100);
+                //}
+                System.Threading.Thread.Sleep(3000);
+
             }
         }
 
@@ -92,12 +94,74 @@ namespace Scattering_Experiment
 
         private void btnStartAcq_Click(object sender, EventArgs e)
         {
-            acquireData();
+            acquireData3();
             //acquireData2();
             Application.DoEvents();
             MessageBox.Show("Done");
         }
 
+        public void acquireData3()
+        {
+            double theta0 = double.Parse(txtBxConexFrom.Text);
+            double thetaf = double.Parse(txtBxConexTo.Text);
+            double dtheta = double.Parse(txtBxConexStep.Text);
+
+            double phi0 = double.Parse(txtBxFrom.Text);
+            double phif = double.Parse(txtBxTo.Text);
+            double dphi = double.Parse(txtBxStep.Text);
+
+            if (thetaf < theta0)
+                dtheta = -1 * Math.Abs(dtheta);
+            else
+                dtheta = Math.Abs(dtheta);
+
+            double theta = theta0;
+            int flag = 0;
+            while (theta <= thetaf)   // Conex
+            {
+                // Do Everything
+                // Move theta
+                conexMoveAbs(theta);
+                if (flag> 0)
+                {
+                    double phif_dummy = phif;
+                    phif = phi0;
+                    phi0 = phif_dummy;
+                    dphi = -dphi;
+                }
+
+                double phi = phi0;
+                while (true)
+                {
+                    // Do everything;
+                    // Move phi
+                    moveTo(DegtoSteps(phi));
+
+                    string savepathBase = txtBxsavePath.Text + "/";
+                    if (!Directory.Exists(savepathBase))
+                        Directory.CreateDirectory(savepathBase);
+                    string imageName = savepathBase + "Theta_" + theta.ToString() + "_Phi" + phi.ToString() + "_.bmp";
+                    captureImage("CAM2", imageName);
+
+                    phi = phi + dphi;
+                    if ((phi0<=phif) && (phi > phif))
+                    {
+                        break;
+                    }
+                    if((phi0 >= phif) && (phi < phif))
+                    {
+                        break;
+                    }
+                    
+                }
+                    
+
+                theta = theta + dtheta;
+                flag = flag + 1;
+            }
+        }
+
+        
 
         // ****************************************** Capture *****************************
         public void captureImage(String camName, string imageName)
@@ -122,8 +186,9 @@ namespace Scattering_Experiment
                     
                 }
                 picBx2.Image = cam.currentImage;
+                picBx2.SizeMode = PictureBoxSizeMode.Zoom;
                 picBx2.Refresh();
-                resizePicBox(picBx2);
+                //resizePicBox(picBx2);
             }
 
             //spinView cam = new spinView("22175210");
@@ -551,7 +616,7 @@ namespace Scattering_Experiment
             double targetDeg= double.Parse(txtBxTarget.Text);
             moveTo(DegtoSteps(targetDeg));
         }
-        private void moveTo(int target)
+        private void moveTo(int target)  // Absolute Position
         {
             int current = int.Parse(txtBxCurrent.Text);
             int steps = target - current;
