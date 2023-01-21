@@ -37,16 +37,19 @@ namespace Scattering_Experiment
         }
         void moveStage(int steps)
         {
-            stageMoving = true;
-            commStage.sendSerial(steps.ToString());
-            int currentPos= int.Parse(Properties.Settings.Default.pos) + steps;
-            Properties.Settings.Default.pos = currentPos.ToString();
-            Properties.Settings.Default.Save();
-            txtBxCurrent.Text = Properties.Settings.Default.pos;
-
-            while (stageMoving)
+            if (steps == 0)
             {
-                System.Threading.Thread.Sleep(100);
+                stageMoving = true;
+                commStage.sendSerial(steps.ToString());
+                int currentPos = int.Parse(Properties.Settings.Default.pos) + steps;
+                Properties.Settings.Default.pos = currentPos.ToString();
+                Properties.Settings.Default.Save();
+                txtBxCurrent.Text = Properties.Settings.Default.pos;
+
+                while (stageMoving)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
             }
         }
 
@@ -89,8 +92,8 @@ namespace Scattering_Experiment
 
         private void btnStartAcq_Click(object sender, EventArgs e)
         {
-            //acquireData();
-            acquireData2();
+            acquireData();
+            //acquireData2();
             Application.DoEvents();
             MessageBox.Show("Done");
         }
@@ -139,8 +142,6 @@ namespace Scattering_Experiment
             int xf = int.Parse(txtBxTo.Text);
             int dx = int.Parse(txtBxStep.Text);
 
-            
-
             int N = 0;
 
             acquire = true;
@@ -151,11 +152,8 @@ namespace Scattering_Experiment
             else
                 N = 0;
 
-            if ((xf - x0) > 0)
+            if ((xf - x0) < 0)
                 dx = -dx;
-
-            
-
 
             int n = 0;
             while(n<=N)
