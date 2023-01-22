@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scattering_Experiment_Third
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ellipsiometry_Experiment", "Ellipsiometry_Experiment\Ellipsiometry_Experiment.csproj", "{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Ellipsiometry_Setup", "Ellipsiometry_Setup\Ellipsiometry_Setup.vdproj", "{1D27DFF3-A087-4699-9FDD-DCA23C3439E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,12 @@ Global
 		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Release|x64.Build.0 = Release|Any CPU
 		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Release|x86.ActiveCfg = Release|Any CPU
 		{CA1B1E49-D5B5-4F69-9ABA-BBDBC72D94BA}.Release|x86.Build.0 = Release|Any CPU
+		{1D27DFF3-A087-4699-9FDD-DCA23C3439E6}.Debug|Any CPU.ActiveCfg = Debug
+		{1D27DFF3-A087-4699-9FDD-DCA23C3439E6}.Debug|x64.ActiveCfg = Debug
+		{1D27DFF3-A087-4699-9FDD-DCA23C3439E6}.Debug|x86.ActiveCfg = Debug
+		{1D27DFF3-A087-4699-9FDD-DCA23C3439E6}.Release|Any CPU.ActiveCfg = Release
+		{1D27DFF3-A087-4699-9FDD-DCA23C3439E6}.Release|x64.ActiveCfg = Release
+		{1D27DFF3-A087-4699-9FDD-DCA23C3439E6}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

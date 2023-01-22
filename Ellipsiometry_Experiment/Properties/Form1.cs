@@ -37,7 +37,7 @@ namespace Scattering_Experiment
         }
         void moveStage(int steps)
         {
-            if (steps == 0)
+            if (steps != 0)
             {
                 stageMoving = true;
                 commStage.sendSerial(steps.ToString());
@@ -140,7 +140,7 @@ namespace Scattering_Experiment
                     string savepathBase = txtBxsavePath.Text + "/";
                     if (!Directory.Exists(savepathBase))
                         Directory.CreateDirectory(savepathBase);
-                    string imageName = savepathBase + "Theta_" + theta.ToString() + "_Phi" + phi.ToString() + "_.bmp";
+                    string imageName = savepathBase + "Theta_" + theta.ToString() + "_Phi_" + phi.ToString() + "_.bmp";
                     captureImage("CAM2", imageName);
 
                     phi = phi + dphi;
