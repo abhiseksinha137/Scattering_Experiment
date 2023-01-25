@@ -1,0 +1,15 @@
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\bin\Debug\Scattering_Experiment.exe.config
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\obj\Debug\Scattering_Experiment.exe
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\obj\Debug\Scattering_Experiment.pdb
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\bin\Debug\Scattering_Experiment.exe
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\bin\Debug\Scattering_Experiment.pdb
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\bin\Debug\ConexAGPCmdLib.DLL
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\bin\Debug\customControl.dll
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\bin\Debug\SpinnakerNETd_v140.dll
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\bin\Debug\VCPWrap.dll
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\bin\Debug\Logging.dll
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\bin\Debug\customControl.pdb
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\obj\Debug\Ellipsiometry_Experiment - Part2.csprojResolveAssemblyReference.cache
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\obj\Debug\Scattering_Experiment.acquireFrm.resources
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\obj\Debug\Scattering_Experiment.Properties.Resources.resources
+E:\VB.NEt\Scattering_Experiment\Ellipsiometry_Experiment - Part2\obj\Debug\Ellipsiometry_Experiment - Part2.csproj.GenerateResource.Cache
